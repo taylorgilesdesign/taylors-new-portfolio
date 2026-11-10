@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>An Inside Look — Taylor Giles</title>
+  <meta name="description" content="An Inside Look: the interior design portfolio of Taylor Giles, Honours Bachelor of Interior Design student at Georgian College.">
+  <meta name="theme-color" content="#997c5f" media="(orientation: portrait) and (max-width: 1024px)">
+  <meta name="theme-color" content="#24160e">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <!-- The vanity is the homepage, so load it first. -->
+  <link rel="preload" as="image" href="assets/images/vanity-home.png" fetchpriority="high">
+
+  <!-- Fonts: Cormorant Garamond (titles and headings), Manrope (body text,
+       captions, navigation), Pinyon Script (small accents). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&family=Pinyon+Script&display=swap">
+
+  <link rel="stylesheet" href="css/styles.css?v=2026-11-09q">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#list">Skip to the portfolio as a list</a>
+
+  <!-- ===================== THE VANITY (HOMEPAGE) ===================== -->
+  <main id="vanity-view" class="vanity-view">
+    <h1 class="visually-hidden">An Inside Look — the interior design portfolio of Taylor Giles</h1>
+
+    <div class="stage" id="stage">
+      <!-- Room extension: continues the wall, ceiling and floor beyond the
+           image edges on wide or tall screens. Built from the image's own edge
+           pixels by js/scene.js; the image itself is never altered. -->
+      <div class="scene-ext" aria-hidden="true">
+        <span class="ext ext--top"></span><span class="ext ext--top-fill"></span>
+        <span class="ext ext--bottom"></span><span class="ext ext--bottom-fill"></span>
+        <span class="ext ext--left"></span><span class="ext ext--left-fill"></span>
+        <span class="ext ext--right"></span><span class="ext ext--right-fill"></span>
+        <span class="ext ext--corner-bl"></span><span class="ext ext--corner-bl-fill"></span>
+        <span class="ext ext--corner-br"></span><span class="ext ext--corner-br-fill"></span>
+        <span class="ext-shade ext-shade--top"></span><span class="ext-shade ext-shade--bottom"></span>
+        <span class="ext-shade ext-shade--left"></span><span class="ext-shade ext-shade--right"></span>
+      </div>
+
+      <img class="stage__image" id="vanity-image"
+           src="assets/images/vanity-home.png" width="1672" height="941"
+           fetchpriority="high" decoding="async"
+           alt="A walnut double vanity with nine drawers and a marble counter, beneath a scalloped brass mirror lettered “An Inside Look” and “Taylor Giles”.">
+
+      <!-- Drawer animation layers (filled in by js/drawers.js). -->
+      <div class="rig" id="drawer-rig" aria-hidden="true" hidden>
+        <div class="rig__cavity"></div>
+        <div class="rig__front"></div>
+      </div>
+
+      <!-- Nine drawer buttons (created by js/drawers.js). -->
+      <nav class="drawers" id="drawers" aria-label="Portfolio drawers"></nav>
+    </div>
+
+    <div class="home-controls">
+      <p class="home-hint" id="home-hint" hidden></p>
+      <button type="button" class="explore-toggle" id="explore-toggle"
+              aria-haspopup="dialog" aria-controls="explore-menu">
+        <span class="explore-toggle__icon" aria-hidden="true"></span><span id="explore-text">Explore the Drawers</span>
+      </button>
+      <a class="look-within" id="list-link" href="#list"
+         aria-label="A Look Within: view the whole portfolio as an accessible list"><span id="list-link-text">A Look Within</span></a>
+    </div>
+  </main>
+
+  <!-- ===================== LIST VIEW ===================== -->
+  <div id="list-view" class="list-view" hidden></div>
+
+  <!-- ===================== DRAWER MENU (touch / small screens) ===================== -->
+  <div class="explore-menu" id="explore-menu" role="dialog" aria-modal="true" aria-labelledby="explore-title" hidden>
+    <div class="explore-menu__sheet">
+      <div class="explore-menu__head">
+        <h2 class="explore-menu__title" id="explore-title">Explore the Drawers</h2>
+        <button type="button" class="icon-btn" data-close-menu aria-label="Close drawer menu">
+          <span aria-hidden="true" class="icon-x"></span>
+        </button>
+      </div>
+      <ol class="explore-menu__list" id="explore-list"></ol>
+    </div>
+  </div>
+
+  <!-- ===================== PORTFOLIO PANEL ===================== -->
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" hidden>
+    <div class="panel__frame">
+      <header class="panel__bar">
+        <button type="button" class="text-btn back-to-vanity" data-close-panel>
+          <span aria-hidden="true" class="arrow-left"></span>Back to the vanity
+        </button>
+        <span class="panel__meta" id="panel-meta"></span>
+        <button type="button" class="icon-btn panel__close" data-close-panel aria-label="Close panel">
+          <span aria-hidden="true" class="icon-x"></span>
+        </button>
+      </header>
+      <div class="panel__scroll" id="panel-scroll">
+        <div class="panel__content" id="panel-content"></div>
+        <footer class="panel__foot">
+          <button type="button" class="pill pill--outline" data-close-panel>
+            <span aria-hidden="true" class="arrow-left"></span>Back to the vanity
+          </button>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MAKEUP-BRUSH CURSOR ===================== -->
+  <canvas class="sparkle-layer" id="sparkle-layer" aria-hidden="true"></canvas>
+  <div class="brush-cursor" id="brush-cursor" aria-hidden="true">
+    <span class="brush-cursor__glow"></span>
+    <img class="brush-cursor__img" src="assets/cursor/makeup-brush.svg" alt="" width="48" height="48">
+  </div>
+
+  <noscript>
+    <div class="noscript">
+      <p>This portfolio uses JavaScript to open its drawers. Please enable JavaScript to explore the work of Taylor Giles.</p>
+    </div>
+  </noscript>
+
+  <script src="data/portfolio.js?v=2026-11-09q" defer></script>
+  <script src="js/scene.js?v=2026-11-09q" defer></script>
+  <script src="js/drawers.js?v=2026-11-09q" defer></script>
+  <script src="js/panels.js?v=2026-11-09q" defer></script>
+  <script src="js/drawingset.js?v=2026-11-09q" defer></script>
+  <script src="js/cursor.js?v=2026-11-09q" defer></script>
+  <script src="js/main.js?v=2026-11-09q" defer></script>
+</body>
+</html>

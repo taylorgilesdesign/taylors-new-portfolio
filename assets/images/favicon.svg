@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Simple drawer-front icon in the site palette (oak, brass, ivory). -->
+  <rect x="2" y="2" width="28" height="28" rx="6" fill="#5e3d26"/>
+  <rect x="5.5" y="7" width="21" height="8" rx="1" fill="#8b5e3c" stroke="#d4b479" stroke-width=".8"/>
+  <rect x="5.5" y="17" width="21" height="8" rx="1" fill="#8b5e3c" stroke="#d4b479" stroke-width=".8"/>
+  <circle cx="16" cy="11" r="1.7" fill="#e9c46a"/>
+  <circle cx="16" cy="21" r="1.7" fill="#e9c46a"/>
+</svg>

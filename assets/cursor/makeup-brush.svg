@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <!-- PLACEHOLDER makeup-brush cursor. Replace this file with your own artwork.
+       Keep the same 48×48 size and keep the brush TIP at x=3, y=3 (top-left),
+       because that point is where clicks land. -->
+  <defs>
+    <linearGradient id="bristle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff6e2"/>
+      <stop offset=".55" stop-color="#f3e6cc"/>
+      <stop offset="1" stop-color="#dcc6a0"/>
+    </linearGradient>
+    <linearGradient id="ferrule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a6526"/>
+      <stop offset=".35" stop-color="#f0d592"/>
+      <stop offset=".6" stop-color="#c49a4c"/>
+      <stop offset="1" stop-color="#7a5720"/>
+    </linearGradient>
+    <linearGradient id="handle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3a2216"/>
+      <stop offset=".4" stop-color="#7a4b2e"/>
+      <stop offset="1" stop-color="#2e1a10"/>
+    </linearGradient>
+  </defs>
+  <!-- Brush drawn pointing straight up from its tip at (0,0), then rotated so the tip sits at (3,3). -->
+  <g transform="translate(3 3) rotate(-45)">
+    <!-- handle -->
+    <path d="M-4.4 22.5 L4.4 22.5 L3 55 Q0 58.5 -3 55 Z" fill="url(#handle)"/>
+    <path d="M-1.2 25 L-0.6 52" stroke="#c99a6a" stroke-width=".7" stroke-linecap="round" opacity=".45"/>
+    <!-- ferrule -->
+    <rect x="-5" y="13.5" width="10" height="9.5" rx="1.2" fill="url(#ferrule)"/>
+    <path d="M-5 16.2 H5 M-5 20.4 H5" stroke="#6e4d1a" stroke-width=".5" opacity=".6"/>
+    <!-- bristles: soft tapered dome, tip exactly at (0,0) -->
+    <path d="M0 0 C2.6 1.2 6.4 6.2 6.2 14 L-6.2 14 C-6.4 6.2 -2.6 1.2 0 0 Z" fill="url(#bristle)" stroke="#cdb48a" stroke-width=".4"/>
+    <path d="M-2.4 13.5 C-2.2 8 -1.2 4 0 1.2 M2.4 13.5 C2.2 8 1.2 4 0 1.2 M0 13.5 V2" stroke="#e2cfac" stroke-width=".45" fill="none" opacity=".8"/>
+  </g>
+</svg>
